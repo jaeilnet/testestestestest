@@ -25,7 +25,7 @@ test("checkbox enables button on first click and disables on second click", asyn
   const confirmButton = screen.getByRole("button", { name: /confirm order/i });
 
   await user.click(checkbox);
-  // expect(confirmButton).toBeEnabled();
+  expect(confirmButton).toBeEnabled();
 
   await user.click(checkbox);
   expect(confirmButton).toBeDisabled();
@@ -33,8 +33,6 @@ test("checkbox enables button on first click and disables on second click", asyn
 
 test("popover responds to hover", async () => {
   const user = userEvent.setup();
-
-  // start
   render(<SummaryForm />);
 
   const nullPopover = screen.queryByText(
@@ -43,18 +41,14 @@ test("popover responds to hover", async () => {
 
   expect(nullPopover).not.toBeInTheDocument();
 
-  // moverover
+  // mouseover
   const termsAndConditions = screen.getByText(/terms and conditions/i);
   await user.hover(termsAndConditions);
 
   const popover = screen.getByText(/no ice cream will actually be delivered/i);
   expect(popover).toBeInTheDocument();
+
   // mouseout
-
   await user.unhover(termsAndConditions);
-  const nullPopoverAgin = screen.getByText(
-    /no ice cream will actually be delivered/i
-  );
-
   expect(nullPopover).not.toBeInTheDocument();
 });

@@ -6,7 +6,7 @@ export const SummaryForm = () => {
 
   const popover = (
     <Popover id="popover-basic">
-      <Popover.Content>No ice cream will actually be delivered</Popover.Content>
+      <Popover.Body>No ice cream will actually be delivered</Popover.Body>
     </Popover>
   );
 

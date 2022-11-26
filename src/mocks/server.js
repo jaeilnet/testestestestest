@@ -1,4 +1,6 @@
+// src/mocks/server.js
 import { setupServer } from "msw/node";
-import { handles } from "./handler";
+import { handlers } from "./handlers";
 
-export const server = setupServer(...handles);
+// This configures a request mocking server with the given request handlers.
+export const server = setupServer(...handlers);
